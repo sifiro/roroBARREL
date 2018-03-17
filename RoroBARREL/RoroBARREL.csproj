@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,15 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs">
+    <Compile Include="Classes\API.cs" />
+    <Compile Include="_Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="_Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Main.resx">
+    <Compile Include="Classes\RESTConnection.cs" />
+    <Compile Include="_Forms\ShowParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Forms\ShowParameters.Designer.cs">
+      <DependentUpon>ShowParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_Forms\ShowTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Forms\ShowTable.Designer.cs">
+      <DependentUpon>ShowTable.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="_Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -63,6 +80,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="_Forms\ShowParameters.resx">
+      <DependentUpon>ShowParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_Forms\ShowTable.resx">
+      <DependentUpon>ShowTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
