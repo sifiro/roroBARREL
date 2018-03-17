@@ -16,21 +16,21 @@ namespace RoroBARREL
             this.host = host;
             this.restConnection = new RESTConnection(host);   
         }
-        public Dictionary<string, string> getTable()
+        public Table getTable()
         {
-            return JsonConvert.DeserializeObject<Dictionary<string, string>>(restConnection.Request("GET","table",null));
+            return JsonConvert.DeserializeObject<Table>(restConnection.Request("GET","table",null));
         }
         public Dictionary<string, string> getSettings()
         {
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(restConnection.Request("GET", "config", null));
         }
-        public bool setSettings()
+        public bool setSettings(Dictionary<string, string> settings)
         {
-            return JObject.Parse(restConnection.Request("POST", "table", null)).SelectToken("status").Value<bool>();
+            return JObject.Parse(restConnection.Request("POST", "config", settings)).SelectToken("status").Value<bool>();
         }
-        public bool setTable()
+        public bool setTable(object table)
         {
-            return JObject.Parse(restConnection.Request("POST", "config", null)).SelectToken("status").Value<bool>();
+            return JObject.Parse(restConnection.Request("POST", "table", table)).SelectToken("status").Value<bool>();
         }
     }
 }

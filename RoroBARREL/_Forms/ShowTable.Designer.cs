@@ -58,7 +58,7 @@
             this.b_connect.Name = "b_connect";
             this.b_connect.Size = new System.Drawing.Size(75, 23);
             this.b_connect.TabIndex = 11;
-            this.b_connect.Text = "Connect";
+            this.b_connect.Text = "Refresh";
             this.b_connect.UseVisualStyleBackColor = true;
             this.b_connect.Click += new System.EventHandler(this.b_connect_Click);
             // 

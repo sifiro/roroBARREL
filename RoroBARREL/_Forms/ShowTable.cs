@@ -27,7 +27,8 @@ namespace RoroBARREL
 
         private void refresh()
         {
-            dataGridView.DataSource = api.getTable().ToList();
+            dataGridView.DataSource = new BindingSource() { DataSource = api.getTable().table };
+
         }
 
         private void b_connect_Click(object sender, EventArgs e)

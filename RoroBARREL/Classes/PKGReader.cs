@@ -8,13 +8,14 @@ namespace RoroBARREL.Classes
 {
     class PKGReader
     {
-        const int ContentID=0x30;
-        const int size = 0x24;
-        const int finish= ContentID + size;
-        public static string contentidreader(string path) {
-            return Bin2StringReader(new FileStream(path,FileMode.Open),ContentID,finish);
+        const int ContentID=0x030;
+        const int size = 0x024;
+        public static string contentidreader(string path)
+        {
+            return Bin2StringReader(new FileStream(path,FileMode.Open),ContentID,size);
         }
-        private static string Bin2StringReader(FileStream fstream,int from, int to) {
+        private static string Bin2StringReader(FileStream fstream,int from, int to)
+        {
             BinaryReader breader= new BinaryReader(fstream);
             breader.BaseStream.Position = from;
             string parsed=Encoding.UTF8.GetString(breader.ReadBytes(to));
