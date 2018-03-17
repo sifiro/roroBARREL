@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\API.cs" />
+    <Compile Include="Classes\PKGReader.cs" />
     <Compile Include="_Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>

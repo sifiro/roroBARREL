@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -48,6 +49,20 @@ namespace RoroBARREL
         {
             setup();
             new ShowParameters(api).ShowDialog();
+        }
+
+        private void b_send_Click(object sender, EventArgs e)
+        {
+            var list=new Dictionary<string, string>();
+            var directory = Directory.GetFiles(folderPath.Text,"*.pkg");
+            foreach (var file in directory) {
+                try {
+                    list.Add(Path.GetFileName(file),Classes.PKGReader.contentidreader(file));
+                } catch {
+                    throw;
+                }
+            }
+        
         }
     }
 }

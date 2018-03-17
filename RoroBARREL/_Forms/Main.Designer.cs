@@ -28,7 +28,7 @@
         private void InitializeComponent()
         {
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.b_send = new System.Windows.Forms.Button();
             this.t_address = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,14 +38,15 @@
             this.b_showSettings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // b_send
             // 
-            this.button1.Location = new System.Drawing.Point(250, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Enviar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.b_send.Location = new System.Drawing.Point(250, 150);
+            this.b_send.Name = "b_send";
+            this.b_send.Size = new System.Drawing.Size(75, 23);
+            this.b_send.TabIndex = 0;
+            this.b_send.Text = "Send";
+            this.b_send.UseVisualStyleBackColor = true;
+            this.b_send.Click += new System.EventHandler(this.b_send_Click);
             // 
             // t_address
             // 
@@ -86,7 +87,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Examinar";
+            this.button2.Text = "Examine";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -96,7 +97,7 @@
             this.b_showtable.Name = "b_showtable";
             this.b_showtable.Size = new System.Drawing.Size(99, 23);
             this.b_showtable.TabIndex = 6;
-            this.b_showtable.Text = "Mostrar Tabla";
+            this.b_showtable.Text = "Show Table";
             this.b_showtable.UseVisualStyleBackColor = true;
             this.b_showtable.Click += new System.EventHandler(this.ShowTable_Click);
             // 
@@ -106,7 +107,7 @@
             this.b_showSettings.Name = "b_showSettings";
             this.b_showSettings.Size = new System.Drawing.Size(91, 23);
             this.b_showSettings.TabIndex = 7;
-            this.b_showSettings.Text = "Mostrar Ajustes";
+            this.b_showSettings.Text = "Show Settings";
             this.b_showSettings.UseVisualStyleBackColor = true;
             this.b_showSettings.Click += new System.EventHandler(this.b_showSettings_Click);
             // 
@@ -122,7 +123,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.t_address);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.b_send);
             this.Name = "Main";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -133,7 +134,7 @@
         #endregion
 
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button b_send;
         private System.Windows.Forms.TextBox t_address;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
