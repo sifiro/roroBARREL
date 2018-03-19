@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+Content-ID = UP0100-XMBMANPLS_00-PINK1000DEVIL303
+klicensee = 0x00000000000000000000000000000000
+DRMType = Free
+ContentType = GameData
+PackageVersion = 01.00

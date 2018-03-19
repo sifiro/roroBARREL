@@ -47,8 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\API.cs" />
+    <Compile Include="Classes\PKGMaker.cs" />
     <Compile Include="Classes\PKGReader.cs" />
     <Compile Include="DTO\Table.cs" />
+    <Compile Include="Templates\HANToolBoxXMLGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HANToolBoxXMLGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\PackageConfigurationTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PackageConfigurationTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="_Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +100,12 @@
       <DependentUpon>ShowTable.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="PKGTEMPLATES\HANTOOLBX\PARAM.SFO">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="PKGTEMPLATES\HANTOOLBX\PS3LOGO.DAT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,6 +115,47 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="external\psn_package_npdrm2.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\HANTOOLBX\ICON0.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\HANTOOLBX\USRDIR\about.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\HANTOOLBX\USRDIR\package.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\HANTOOLBX\USRDIR\reboot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\HANTOOLBX\USRDIR\setup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\HANTOOLBX\USRDIR\shutdown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\HANTOOLBX\USRDIR\update.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\HANTOOLBX\USRDIR\web.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\HANToolBoxXMLGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HANToolBoxXMLGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\PackageConfigurationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PackageConfigurationTemplate.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

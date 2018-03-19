@@ -1,0 +1,480 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<XMBML version="1.0">
+<View id="han_toolbox_xmb_main"> 
+		<Attributes> 
+			<Table key="han_main">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbItemAlbum</String></Pair>
+				<Pair key="title"><String>★ HAN Toolbox</String></Pair>
+				<Pair key="info"><String>The Unofficial Xploit Companion</String></Pair>
+				<Pair key="ingame"><String>disable</String></Pair>
+			</Table>
+		</Attributes>
+			<Items>
+			<Query 
+				class="type:x-xmb/folder-pixmap"
+				key="han_main"
+				attr="han_main"
+				src="#han_main_items"/>
+			</Items>
+		</View>
+		
+		<View id="han_main_items"> 
+		<Attributes> 
+			<Table key="han_reboot_soft">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/reboot.png</String></Pair>
+				<Pair key="title"><String>Soft Reboot</String></Pair>
+				<Pair key="info"><String>Restart Console</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/syscalls/soft_reboot.html</String></Pair>
+			</Table>
+			<Table key="han_enabler_auto_main">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>HAN Enabler</String></Pair>
+				<Pair key="info"><String>Enable Custom Signed Packages and Licenses</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/han_enabler_auto.html</String></Pair>
+			</Table>
+			<Table key="han_functions">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title"><String>HAN Functions</String></Pair>
+				<Pair key="info"><String>Autorun HAN Functions for OFW/CFW Consoles</String></Pair>
+			</Table>
+			<Table key="han_functions_dex">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title"><String>HAN Functions (DEX)</String></Pair>
+				<Pair key="info"><String>Autorun HAN Functions for DEX Firmware</String></Pair>
+			</Table>
+			<Table key="han_functions_legacy">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title"><String>HAN Functions (Legacy)</String></Pair>
+				<Pair key="info"><String>Original Non-Auto HAN Functions for OFW/CFW Consoles</String></Pair>
+			</Table>
+			<Table key="han_file_browser">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title"><String>File Explorer</String></Pair>
+				<Pair key="info"><String>Browse Complete File System and Delete Files (Be Careful)</String></Pair>
+			</Table>
+			<Table key="pkg_linker">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/package.png</String></Pair>
+				<Pair key="title"><String>Install Packages From Webserver</String></Pair>
+				<Pair key="info"><String>Run a Server on PC to Download and Install Packages</String></Pair>
+			</Table>
+			<Table key="han_toolbox_setup">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/setup.png</String></Pair>
+				<Pair key="title"><String>Toolbox Settings</String></Pair>
+				<Pair key="info"><String>Version info, Support, Update</String></Pair>
+			</Table>
+		</Attributes>
+			<Items>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_reboot_soft"
+				attr="han_reboot_soft"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_enabler_auto_main"
+				attr="han_enabler_auto_main"
+				/>
+			<Query 
+				class="type:x-xmb/folder-pixmap" 
+				key="han_functions" 
+				attr="han_functions"
+				src="#han_functions_main"
+				/>
+			<Query 
+				class="type:x-xmb/folder-pixmap" 
+				key="han_functions_dex" 
+				attr="han_functions_dex"
+				src="#han_functions_dex_main"
+				/>
+			<Query 
+				class="type:x-xmb/folder-pixmap" 
+				key="han_functions_legacy" 
+				attr="han_functions_legacy"
+				src="#han_functions_legacy_main"
+				/>
+			<Query 
+				class="type:x-xmb/folder-pixmap" 
+				key="han_file_browser"
+				attr="han_file_browser" 				
+				src="host://localhost/"
+				/>
+			<Query 
+				class="type:x-xmb/folder-pixmap" 
+				key="pkg_linker" 
+				attr="pkg_linker"
+				src="xmb://localhost/dev_hdd0/game/PKGLINKER/USRDIR/package_link.xml#pkg_items"
+				/>
+			<Query 
+				class="type:x-xmb/folder-pixmap" 
+				key="han_toolbox_setup" 
+				attr="han_toolbox_setup"
+				src="#han_toolbox_setup_main"
+				/>
+			</Items>
+		</View>
+		
+		<View id="han_functions_main"> 
+		<Attributes> 
+			<Table key="han_reboot_soft_auto">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/reboot.png</String></Pair>
+				<Pair key="title"><String>Soft Reboot</String></Pair>
+				<Pair key="info"><String>Restart Console</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/syscalls/soft_reboot.html</String></Pair>
+			</Table>
+			<Table key="han_reboot_hard_auto">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/reboot.png</String></Pair>
+				<Pair key="title"><String>Hard Reboot</String></Pair>
+				<Pair key="info"><String>Restart Console</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/syscalls/hard_reboot.html</String></Pair>
+			</Table>
+			<Table key="han_shutdown_auto">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/shutdown.png</String></Pair>
+				<Pair key="title"><String>Shutdown</String></Pair>
+				<Pair key="info"><String>Turn Off Console</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/syscalls/power_down.html</String></Pair>
+			</Table>
+			<Table key="han_enabler_auto">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>HAN Enabler</String></Pair>
+				<Pair key="info"><String>Enable Custom Signed Packages and Licenses</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/han_enabler_auto.html</String></Pair>
+			</Table>
+			<Table key="han_installer_auto">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>HAN Installer</String></Pair>
+				<Pair key="info"><String>Enable Package Manager</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/han_installer_auto.html</String></Pair>
+			</Table>
+			<Table key="han_license_dumper_auto">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>License Dumper</String></Pair>
+				<Pair key="info"><String>Dump Activation Data (act.dat/idps)</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/actidps_dumper_auto.html</String></Pair>
+			</Table>
+			<Table key="han_injector_auto">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>Injector</String></Pair>
+				<Pair key="info"><String>Auto Running Injector Xploit Only Useful For act.dat</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/actrif_copier_auto.html</String></Pair>
+			</Table>
+			<Table key="han_debug_auto">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>Debug Package Enabler</String></Pair>
+				<Pair key="info"><String>For Modifed Retail Packages Only</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/dbgpkg_enabler_auto.html</String></Pair>
+			</Table>
+			<Table key="han_mount_usb_as_bd">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>Mount USB as BDVD</String></Pair>
+				<Pair key="info"><String>Redirect dev_usb000 to dev_bdvd</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/syscalls/mount_usb000_as_bdvd.html</String></Pair>
+			</Table>
+		</Attributes>
+			<Items>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_reboot_soft_auto"
+				attr="han_reboot_soft_auto"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_reboot_hard_auto"
+				attr="han_reboot_hard_auto"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_shutdown_auto"
+				attr="han_shutdown_auto"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_enabler_auto"
+				attr="han_enabler_auto"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_installer_auto"
+				attr="han_installer_auto"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_license_dumper_auto"
+				attr="han_license_dumper_auto"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_injector_auto"
+				attr="han_injector_auto"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_debug_auto"
+				attr="han_debug_auto"
+				/>
+			<!-- <Query 
+				class="type:x-xmb/module-action"
+				key="han_mount_usb_as_bd"
+				attr="han_mount_usb_as_bd"
+				/> -->
+			</Items>
+		</View>
+		
+		<View id="han_functions_dex_main"> 
+		<Attributes> 
+			<Table key="han_reboot_soft_auto_dex">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/reboot.png</String></Pair>
+				<Pair key="title"><String>Soft Reboot</String></Pair>
+				<Pair key="info"><String>Restart Console</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/syscalls/soft_reboot_dex.html</String></Pair>
+			</Table>
+			<Table key="han_reboot_hard_auto_dex">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/reboot.png</String></Pair>
+				<Pair key="title"><String>Hard Reboot</String></Pair>
+				<Pair key="info"><String>Restart Console</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/syscalls/hard_reboot_dex.html</String></Pair>
+			</Table>
+			<Table key="han_shutdown_auto_dex">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/shutdown.png</String></Pair>
+				<Pair key="title"><String>Shutdown</String></Pair>
+				<Pair key="info"><String>Turn Off Console</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/syscalls/power_down_dex.html</String></Pair>
+			</Table>
+			<Table key="han_enabler_auto_dex">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>HAN Enabler</String></Pair>
+				<Pair key="info"><String>Enable Custom Signed Packages and Licenses</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/han_enabler_auto_dex.html</String></Pair>
+			</Table>
+			<Table key="han_installer_auto_dex">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>HAN Installer</String></Pair>
+				<Pair key="info"><String>Enable Package Manager</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/han_installer_auto_dex.html</String></Pair>
+			</Table>
+			<Table key="han_license_dumper_auto_dex">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>License Dumper</String></Pair>
+				<Pair key="info"><String>Dump Activation Data (act.dat/idps)</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/actidps_dumper_auto_dex.html</String></Pair>
+			</Table>
+			<Table key="han_injector_auto_dex">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>License Injector</String></Pair>
+				<Pair key="info"><String>Inject Custom Signed Activation Data (act.dat/rif)</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/actrif_copier_auto_dex.html</String></Pair>
+			</Table>
+			<Table key="han_debug_auto_dex">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>Debug Package Enabler</String></Pair>
+				<Pair key="info"><String>For Modifed Retail Packages Only</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/dbgpkg_enabler_auto_dex.html</String></Pair>
+			</Table>
+			<Table key="han_mount_usb_as_bd_dex">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>Mount USB as BDVD</String></Pair>
+				<Pair key="info"><String>Redirect dev_usb000 to dev_bdvd</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/syscalls/mount_usb000_as_bdvd_dex.html</String></Pair>
+			</Table>
+		</Attributes>
+			<Items>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_reboot_soft_auto_dex"
+				attr="han_reboot_soft_auto_dex"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_reboot_hard_auto_dex"
+				attr="han_reboot_hard_auto_dex"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_shutdown_auto_dex"
+				attr="han_shutdown_auto_dex"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_enabler_auto_dex"
+				attr="han_enabler_auto_dex"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_installer_auto_dex"
+				attr="han_installer_auto_dex"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_license_dumper_auto_dex"
+				attr="han_license_dumper_auto_dex"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_injector_auto_dex"
+				attr="han_injector_auto_dex"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_debug_auto_dex"
+				attr="han_debug_auto_dex"
+				/>
+		<!--	<Query 
+				class="type:x-xmb/module-action"
+				key="han_mount_usb_as_bd_dex"
+				attr="han_mount_usb_as_bd_dex"
+				/> -->
+			</Items>
+		</View>
+		
+		<View id="han_functions_legacy_main"> 
+		<Attributes> 
+			<Table key="han_installer">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>HAN Installer</String></Pair>
+				<Pair key="info"><String>Enable Package Manager</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/han_installer.html</String></Pair>
+			</Table>
+			<Table key="han_enabler">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>HAN Enabler</String></Pair>
+				<Pair key="info"><String>Enable Custom Signed Package and License</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/han_enabler.html</String></Pair>
+			</Table>
+			<Table key="han_license_dumper">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>License Dumper</String></Pair>
+				<Pair key="info"><String>Dump Activation Data (act.dat+idps)</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/actidps_dumper.html</String></Pair>
+			</Table>
+			<Table key="han_injector">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>License Injector</String></Pair>
+				<Pair key="info"><String>Inject Custom Signed Activation Data (act.dat+rif)</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/actrif_copier.html</String></Pair>
+			</Table>
+			<Table key="han_debug">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>Debug Package Enabler</String></Pair>
+				<Pair key="info"><String>For Modifed Retail Packages Only</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/dbgpkg_enabler.html</String></Pair>
+			</Table>
+		</Attributes>
+			<Items>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_installer"
+				attr="han_installer"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_enabler"
+				attr="han_enabler"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_license_dumper"
+				attr="han_license_dumper"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_injector"
+				attr="han_injector"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_debug"
+				attr="han_debug"
+				/>
+			</Items>
+		</View>
+		
+		<View id="han_toolbox_setup_main"> 
+		<Attributes> 
+			<Table key="han_toolbox_update">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/update.png</String></Pair>
+				<Pair key="title"><String>Update Toolbox</String></Pair>
+				<Pair key="info"><String>Download Latest Toolbox Package</String></Pair>
+			</Table>
+			<Table key="han_support">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
+				<Pair key="title"><String>Support Forum</String></Pair>
+				<Pair key="info"><String>Visit the PSX-Place Xploit 3.0 Thread</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>http://www.psx-place.com/threads/ps3xploit-tools-v3-0-han-released-non-cfw-compatible-slim-superslim-models.16672/</String></Pair>
+			</Table>
+			<Table key="han_toolbox_about">
+				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/about.png</String></Pair>
+				<Pair key="title"><String>Version: 0.3</String></Pair>
+				<Pair key="info"><String>By DeViL303 and Pink1 (Massive Thanks to Team PS3Xploit)</String></Pair>
+			</Table>
+		</Attributes>
+			<Items>
+			<Query 
+				class="type:x-xmb/folder-pixmap" 
+				key="han_toolbox_update" 
+				attr="han_toolbox_update"
+				src="#han_toolbox_update_main"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_support"
+				attr="han_support"
+				/>
+			<Query 
+				class="type:x-xmb/module-action"
+				key="han_toolbox_about"
+				attr="han_toolbox_about"
+				/>
+			</Items>
+		</View>
+		
+		<View id="han_toolbox_update_main">
+		<Attributes>
+			<Table key="han_toolbox_update_item">
+				<Pair key="info"><String>net_package_install</String></Pair>
+				<Pair key="pkg_src"><String>http://dl.dropboxusercontent.com/s/ylj6q7io9egvpbw/Latest_HAN_Toolbox.pkg</String></Pair>
+				<Pair key="pkg_src_qa"><String>http://dl.dropboxusercontent.com/s/ylj6q7io9egvpbw/Latest_HAN_Toolbox.pkg</String></Pair>
+				<Pair key="content_name"><String>pkg_install_pc</String></Pair>
+				<Pair key="content_id"><String>UP0100-HANTOOLBX_00-PINK1000DEVIL303</String></Pair>
+				<Pair key="prod_pict_path"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/update.png</String></Pair>
+ 			</Table> 
+		</Attributes> 
+			<Items>
+			<Item class="type:x-xmb/xmlnpsignup" key="han_toolbox_update_item" attr="han_toolbox_update_item"/>
+		</Items> 
+		</View> 
+		
+		</XMBML>
+		
+		<#+ public String Host; #>
