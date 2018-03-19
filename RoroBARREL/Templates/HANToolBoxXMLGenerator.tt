@@ -171,7 +171,7 @@
 				<Pair key="title"><String>Injector</String></Pair>
 				<Pair key="info"><String>Auto Running Injector Xploit Only Useful For act.dat</String></Pair>
 				<Pair key="module_name"><String>webrender_plugin</String></Pair>
-				<Pair key="module_action"><String>http://<#= Host #>/han/actrif_copier_auto.html</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/injecter_auto</String></Pair>
 			</Table>
 			<Table key="han_debug_auto">
 				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
@@ -380,7 +380,7 @@
 				<Pair key="title"><String>License Injector</String></Pair>
 				<Pair key="info"><String>Inject Custom Signed Activation Data (act.dat+rif)</String></Pair>
 				<Pair key="module_name"><String>webrender_plugin</String></Pair>
-				<Pair key="module_action"><String>http://<#= Host #>/han/actrif_copier.html</String></Pair>
+				<Pair key="module_action"><String>http://<#= Host #>/han/injecter</String></Pair>
 			</Table>
 			<Table key="han_debug">
 				<Pair key="icon"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>

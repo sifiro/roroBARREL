@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.b_showtable = new System.Windows.Forms.Button();
             this.b_showSettings = new System.Windows.Forms.Button();
+            this.b_maketoolbox = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // b_send
@@ -54,7 +55,7 @@
             this.t_address.Name = "t_address";
             this.t_address.Size = new System.Drawing.Size(130, 20);
             this.t_address.TabIndex = 1;
-            this.t_address.Text = "localhost";
+            this.t_address.Text = "blanc.lan";
             // 
             // label1
             // 
@@ -103,7 +104,7 @@
             // 
             // b_showSettings
             // 
-            this.b_showSettings.Location = new System.Drawing.Point(144, 150);
+            this.b_showSettings.Location = new System.Drawing.Point(128, 150);
             this.b_showSettings.Name = "b_showSettings";
             this.b_showSettings.Size = new System.Drawing.Size(91, 23);
             this.b_showSettings.TabIndex = 7;
@@ -111,11 +112,22 @@
             this.b_showSettings.UseVisualStyleBackColor = true;
             this.b_showSettings.Click += new System.EventHandler(this.b_showSettings_Click);
             // 
+            // b_maketoolbox
+            // 
+            this.b_maketoolbox.Location = new System.Drawing.Point(23, 116);
+            this.b_maketoolbox.Name = "b_maketoolbox";
+            this.b_maketoolbox.Size = new System.Drawing.Size(120, 23);
+            this.b_maketoolbox.TabIndex = 8;
+            this.b_maketoolbox.Text = "Make HANTOOLBOX";
+            this.b_maketoolbox.UseVisualStyleBackColor = true;
+            this.b_maketoolbox.Click += new System.EventHandler(this.b_maketoolbox_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 195);
+            this.Controls.Add(this.b_maketoolbox);
             this.Controls.Add(this.b_showSettings);
             this.Controls.Add(this.b_showtable);
             this.Controls.Add(this.button2);
@@ -142,6 +154,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button b_showtable;
         private System.Windows.Forms.Button b_showSettings;
+        private System.Windows.Forms.Button b_maketoolbox;
     }
 }
 

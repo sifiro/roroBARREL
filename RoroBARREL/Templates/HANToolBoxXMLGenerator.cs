@@ -211,7 +211,7 @@ namespace RoroBARREL.Templates
             
             #line default
             #line hidden
-            this.Write(@"/han/actrif_copier_auto.html</String></Pair>
+            this.Write(@"/han/injecter_auto</String></Pair>
 			</Table>
 			<Table key=""han_debug_auto"">
 				<Pair key=""icon""><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>
@@ -448,7 +448,7 @@ namespace RoroBARREL.Templates
             
             #line default
             #line hidden
-            this.Write(@"/han/actrif_copier.html</String></Pair>
+            this.Write(@"/han/injecter</String></Pair>
 			</Table>
 			<Table key=""han_debug"">
 				<Pair key=""icon""><String>/dev_hdd0/game/HANTOOLBX/USRDIR/web.png</String></Pair>

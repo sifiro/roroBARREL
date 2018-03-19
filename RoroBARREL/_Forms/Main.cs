@@ -65,5 +65,10 @@ namespace RoroBARREL
            api.setTable(new Table() {table = list });
            MessageBox.Show("The List was sent to Server", "Done", MessageBoxButtons.OK);
         }
+
+        private void b_maketoolbox_Click(object sender, EventArgs e)
+        {
+            Classes.PKGMaker.GenerateHANToolbox(t_address.Text);
+        }
     }
 }

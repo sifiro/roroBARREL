@@ -28,11 +28,23 @@ namespace RoroBARREL.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("Content-ID = UP0100-XMBMANPLS_00-PINK1000DEVIL303\r\nklicensee = 0x0000000000000000" +
-                    "0000000000000000\r\nDRMType = Free\r\nContentType = GameData\r\nPackageVersion = 01.00" +
-                    "\r\n");
+            this.Write("Content-ID = ");
+            
+            #line 6 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageConfigurationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ContentID));
+            
+            #line default
+            #line hidden
+            this.Write("\r\nklicensee = 0x00000000000000000000000000000000\r\nDRMType = Free\r\nContentType = G" +
+                    "ameData\r\nPackageVersion = 01.00\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
+        
+        #line 12 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageConfigurationTemplate.tt"
+ public string ContentID ;
+        
+        #line default
+        #line hidden
     }
     
     #line default
