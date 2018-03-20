@@ -14,6 +14,10 @@ namespace RoroBARREL.Classes
         private static string GenerateHANToolboxXML(string host) {
             return new Templates.HANToolBoxXMLGenerator() { Host = host }.TransformText(); ;
         }
+        private static string GeneratePKGLinkerXML(string host,string directory,string[] pkgs)
+        {
+            return new Templates.PackageLinkXMLGenerator() { Host = host, Directory=directory, PKGs=pkgs }.TransformText(); ;
+        }
 
         private static string GenerateConfigurationForPKGGenerator(string contentid) {
             return new Templates.PackageConfigurationTemplate() { ContentID = contentid }.TransformText();
@@ -28,10 +32,10 @@ namespace RoroBARREL.Classes
             MakePKG("./" + templateFolder + "/" + "config-hantoolbox.cfg", "./" + templateFolder + "/" + htbx);
         }
 
-        public static void GeneratePKGLinker(string host)
+        public static void GeneratePKGLinker(string host, string directory, string[] pkgs)
         {
-            /// TODO: Make package_link.xml Template
-            WritePlainFile("./" + templateFolder + "/" + pkglink + "/USRDIR/" + "package_link.xml", null);
+            /// Make package_link.xml Template
+            WritePlainFile("./" + templateFolder + "/" + pkglink + "/USRDIR/" + "package_link.xml", GeneratePKGLinkerXML(host,directory,pkgs));
             /// Make configuration file for PKG Packer
             WritePlainFile("./" + templateFolder + "/" + "config-pkglinker.cfg", GenerateConfigurationForPKGGenerator(pkglinkContentID));
             MakePKG("./" + templateFolder + "/" + "config-pkglinker.cfg", "./" + templateFolder + "/" + pkglink);

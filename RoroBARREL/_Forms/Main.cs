@@ -53,14 +53,16 @@ namespace RoroBARREL
 
         private void b_send_Click(object sender, EventArgs e)
         {
+            var pkgs = Directory.GetFiles(folderPath.Text, "*.pkg");
             var list=new Dictionary<string, string>();
-            foreach (var file in Directory.GetFiles(folderPath.Text, "*.pkg")) {
+            foreach (var file in pkgs) {
                 try {
                     list.Add(Path.GetFileName(file),Classes.PKGReader.contentidreader(file));
                 } catch {
                     throw;
                 }
             }
+            
             setup();
            api.setTable(new Table() {table = list });
            MessageBox.Show("The List was sent to Server", "Done", MessageBoxButtons.OK);

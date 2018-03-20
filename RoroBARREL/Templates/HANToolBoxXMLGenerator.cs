@@ -500,11 +500,11 @@ namespace RoroBARREL.Templates
                     "Pair>\r\n\t\t\t\t<Pair key=\"prod_pict_path\"><String>/dev_hdd0/game/HANTOOLBX/USRDIR/up" +
                     "date.png</String></Pair>\r\n \t\t\t</Table> \r\n\t\t</Attributes> \r\n\t\t\t<Items>\r\n\t\t\t<Item " +
                     "class=\"type:x-xmb/xmlnpsignup\" key=\"han_toolbox_update_item\" attr=\"han_toolbox_u" +
-                    "pdate_item\"/>\r\n\t\t</Items> \r\n\t\t</View> \r\n\t\t\r\n\t\t</XMBML>\r\n\t\t\r\n\t\t");
+                    "pdate_item\"/>\r\n\t\t</Items> \r\n\t\t</View> \r\n\t\t\r\n\t\t</XMBML>\r\n\t\t\r\n\r\n\r\n\t\t");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 480 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\HANToolBoxXMLGenerator.tt"
+        #line 482 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\HANToolBoxXMLGenerator.tt"
  public String Host; 
         
         #line default

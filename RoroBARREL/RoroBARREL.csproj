@@ -60,6 +60,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PackageConfigurationTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Templates\PackageLinkXMLGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PackageLinkXMLGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="_Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +156,10 @@
     <Content Include="Templates\PackageConfigurationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PackageConfigurationTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\PackageLinkXMLGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PackageLinkXMLGenerator.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup />
