@@ -26,29 +26,19 @@ namespace RoroBARREL.Classes
 
         public static void GenerateHANToolbox(string host) {
             /// Make han_toolbox_xmb.xml
-            WritePlainFile("./"+templateFolder+"/"+htbx+"/USRDIR/" + "han_toolbox_xmb.xml", GenerateHANToolboxXML(host));
+            Utils.WritePlainFile("./"+templateFolder+"/"+htbx+"/USRDIR/" + "han_toolbox_xmb.xml", GenerateHANToolboxXML(host));
             /// Make configuration file for PKG Packer
-            WritePlainFile("./" + templateFolder + "/" + "config-hantoolbox.cfg", GenerateConfigurationForPKGGenerator(htbxContentID));
+            Utils.WritePlainFile("./" + templateFolder + "/" + "config-hantoolbox.cfg", GenerateConfigurationForPKGGenerator(htbxContentID));
             MakePKG("./" + templateFolder + "/" + "config-hantoolbox.cfg", "./" + templateFolder + "/" + htbx);
         }
 
         public static void GeneratePKGLinker(string host, string directory, string[] pkgs)
         {
             /// Make package_link.xml Template
-            WritePlainFile("./" + templateFolder + "/" + pkglink + "/USRDIR/" + "package_link.xml", GeneratePKGLinkerXML(host,directory,pkgs));
+            Utils.WritePlainFile("./" + templateFolder + "/" + pkglink + "/USRDIR/" + "package_link.xml", GeneratePKGLinkerXML(host,directory,pkgs));
             /// Make configuration file for PKG Packer
-            WritePlainFile("./" + templateFolder + "/" + "config-pkglinker.cfg", GenerateConfigurationForPKGGenerator(pkglinkContentID));
+            Utils.WritePlainFile("./" + templateFolder + "/" + "config-pkglinker.cfg", GenerateConfigurationForPKGGenerator(pkglinkContentID));
             MakePKG("./" + templateFolder + "/" + "config-pkglinker.cfg", "./" + templateFolder + "/" + pkglink);
-        }
-
-        private static void WritePlainFile(string path, string content) {
-        using (FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write))
-            using (StreamWriter sw = new StreamWriter(fs)) {
-                sw.WriteLine(content);
-                sw.Flush();
-                sw.Close();
-            }
-
         }
 
         private static void MakePKG(string config, string dir) {

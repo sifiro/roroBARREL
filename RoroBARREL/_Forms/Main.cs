@@ -5,19 +5,29 @@ using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Modules;
 using System.IO;
 using System.Windows.Forms;
+using Newtonsoft.Json.Linq;
 
 namespace RoroBARREL
 {
     public partial class Main : Form
     {
-        API api;
-        WebServer server;
-        bool server_status;
+        private API api;
+        private WebServer server;
+        private bool server_status;
+        private JObject settings;
         public Main()
         {
             InitializeComponent();
             server_status=false;
-           t_localipaddress.Text = Classes.Utils.GetLocalIPAddress();
+            l_webstatus.Text = "Stopped";
+            if (File.Exists("./config.json")) 
+            {
+                settings=Classes.Utils.LoadJson("./config.json");
+                t_address.Text = settings.SelectToken("serveripaddress").Value<string>();
+                t_localipaddress.Text = settings.SelectToken("localipaddress").Value<string>();
+                folderPath.Text = settings.SelectToken("defaultfolder").Value<string>();
+
+            } else t_localipaddress.Text = Classes.Utils.GetLocalIPAddress();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -67,7 +77,8 @@ namespace RoroBARREL
             
             setup();
            api.setTable(new Table() {table = list });
-           MessageBox.Show("The List was sent to Server", "Done", MessageBoxButtons.OK);
+            api.SetLocalIPAddress(t_localipaddress.Text);
+           MessageBox.Show("The List and parameters was sent to Server", "Done", MessageBoxButtons.OK);
         }
 
         private void b_maketoolbox_Click(object sender, EventArgs e)
@@ -80,6 +91,8 @@ namespace RoroBARREL
             if (!server_status) 
             {
                 server_status = true;
+                l_webstatus.Text = "Running";
+                b_webbutton.Text = "Stop";
                 server = new WebServer();
                 server.RegisterModule(new StaticFilesModule(folderPath.Text));
                 server.RunAsync();
@@ -87,6 +100,8 @@ namespace RoroBARREL
             } else 
             {
                 server.Dispose();
+                l_webstatus.Text = "Stopped";
+                b_webbutton.Text = "Start";
                 server_status = false;
             }
         }

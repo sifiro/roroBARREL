@@ -24,7 +24,10 @@ namespace RoroBARREL
         {
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(restConnection.Request("GET", "config", null));
         }
-        public bool setSettings(Dictionary<string, string> settings)
+        public bool SetLocalIPAddress(string host) {
+            return setSettings(new JObject() { new JProperty("ipaddress", host) });
+        }
+        private bool setSettings(object settings)
         {
             return JObject.Parse(restConnection.Request("POST", "config", settings)).SelectToken("status").Value<bool>();
         }
