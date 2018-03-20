@@ -58,6 +58,7 @@
     <Compile Include="Classes\API.cs" />
     <Compile Include="Classes\PKGMaker.cs" />
     <Compile Include="Classes\PKGReader.cs" />
+    <Compile Include="Classes\Utils.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="Templates\HANToolBoxXMLGenerator.cs">
       <AutoGen>True</AutoGen>
@@ -115,6 +116,7 @@
       <DependentUpon>ShowTable.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="config.json" />
     <None Include="packages.config" />
     <None Include="PKGTEMPLATES\HANTOOLBX\PARAM.SFO">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

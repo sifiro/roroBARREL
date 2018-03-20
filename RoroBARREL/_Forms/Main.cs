@@ -17,6 +17,7 @@ namespace RoroBARREL
         {
             InitializeComponent();
             server_status=false;
+           t_localipaddress.Text = Classes.Utils.GetLocalIPAddress();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

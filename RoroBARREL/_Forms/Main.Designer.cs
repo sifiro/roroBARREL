@@ -43,6 +43,8 @@
             this.b_webbutton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.l_hhsStatus = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.t_localipaddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // b_send
@@ -183,11 +185,29 @@
             this.l_hhsStatus.TabIndex = 14;
             this.l_hhsStatus.Text = "NOT IMPLEMENTED";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 173);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Local IP Address:";
+            // 
+            // t_localipaddress
+            // 
+            this.t_localipaddress.Location = new System.Drawing.Point(116, 170);
+            this.t_localipaddress.Name = "t_localipaddress";
+            this.t_localipaddress.Size = new System.Drawing.Size(100, 20);
+            this.t_localipaddress.TabIndex = 16;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 262);
+            this.Controls.Add(this.t_localipaddress);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.l_hhsStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.b_webbutton);
@@ -228,6 +248,8 @@
         private System.Windows.Forms.Button b_webbutton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label l_hhsStatus;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox t_localipaddress;
     }
 }
 
