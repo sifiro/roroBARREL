@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using Unosquare.Labs.EmbedIO;
+using Unosquare.Labs.EmbedIO.Modules;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace RoroBARREL
@@ -13,9 +11,12 @@ namespace RoroBARREL
     public partial class Main : Form
     {
         API api;
+        WebServer server;
+        bool server_status;
         public Main()
         {
             InitializeComponent();
+            server_status=false;
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -57,7 +58,7 @@ namespace RoroBARREL
             var list=new Dictionary<string, string>();
             foreach (var file in pkgs) {
                 try {
-                    list.Add(Path.GetFileName(file),Classes.PKGReader.contentidreader(file));
+                    list.Add(Path.GetFileName(file),Classes.PKGReader.ContentIdReader(file));
                 } catch {
                     throw;
                 }
@@ -71,6 +72,22 @@ namespace RoroBARREL
         private void b_maketoolbox_Click(object sender, EventArgs e)
         {
             Classes.PKGMaker.GenerateHANToolbox(t_address.Text);
+        }
+
+        private void b_webbutton_Click(object sender, EventArgs e)
+        {
+            if (!server_status) 
+            {
+                server_status = true;
+                server = new WebServer();
+                server.RegisterModule(new StaticFilesModule(folderPath.Text));
+                server.RunAsync();
+                
+            } else 
+            {
+                server.Dispose();
+                server_status = false;
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace RoroBARREL.Classes
     {
         const int ContentID=0x030;
         const int size = 0x024;
-        public static string contentidreader(string path)
+        public static string ContentIdReader(string path)
         {
             return Bin2StringReader(new FileStream(path,FileMode.Open),ContentID,size);
         }

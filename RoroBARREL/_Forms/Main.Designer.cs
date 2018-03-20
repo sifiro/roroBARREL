@@ -37,15 +37,21 @@
             this.b_showtable = new System.Windows.Forms.Button();
             this.b_showSettings = new System.Windows.Forms.Button();
             this.b_maketoolbox = new System.Windows.Forms.Button();
+            this.b_updatepkg = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.l_webstatus = new System.Windows.Forms.Label();
+            this.b_webbutton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.l_hhsStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // b_send
             // 
-            this.b_send.Location = new System.Drawing.Point(250, 150);
+            this.b_send.Location = new System.Drawing.Point(216, 227);
             this.b_send.Name = "b_send";
             this.b_send.Size = new System.Drawing.Size(75, 23);
             this.b_send.TabIndex = 0;
-            this.b_send.Text = "Send";
+            this.b_send.Text = "Send List";
             this.b_send.UseVisualStyleBackColor = true;
             this.b_send.Click += new System.EventHandler(this.b_send_Click);
             // 
@@ -53,7 +59,7 @@
             // 
             this.t_address.Location = new System.Drawing.Point(195, 25);
             this.t_address.Name = "t_address";
-            this.t_address.Size = new System.Drawing.Size(130, 20);
+            this.t_address.Size = new System.Drawing.Size(96, 20);
             this.t_address.TabIndex = 1;
             this.t_address.Text = "blanc.lan";
             // 
@@ -79,14 +85,14 @@
             // 
             this.folderPath.Location = new System.Drawing.Point(23, 77);
             this.folderPath.Name = "folderPath";
-            this.folderPath.Size = new System.Drawing.Size(221, 20);
+            this.folderPath.Size = new System.Drawing.Size(204, 20);
             this.folderPath.TabIndex = 4;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(250, 75);
+            this.button2.Location = new System.Drawing.Point(233, 75);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(58, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "Examine";
             this.button2.UseVisualStyleBackColor = true;
@@ -94,9 +100,9 @@
             // 
             // b_showtable
             // 
-            this.b_showtable.Location = new System.Drawing.Point(23, 150);
+            this.b_showtable.Location = new System.Drawing.Point(23, 227);
             this.b_showtable.Name = "b_showtable";
-            this.b_showtable.Size = new System.Drawing.Size(99, 23);
+            this.b_showtable.Size = new System.Drawing.Size(86, 23);
             this.b_showtable.TabIndex = 6;
             this.b_showtable.Text = "Show Table";
             this.b_showtable.UseVisualStyleBackColor = true;
@@ -104,9 +110,9 @@
             // 
             // b_showSettings
             // 
-            this.b_showSettings.Location = new System.Drawing.Point(128, 150);
+            this.b_showSettings.Location = new System.Drawing.Point(114, 227);
             this.b_showSettings.Name = "b_showSettings";
-            this.b_showSettings.Size = new System.Drawing.Size(91, 23);
+            this.b_showSettings.Size = new System.Drawing.Size(96, 23);
             this.b_showSettings.TabIndex = 7;
             this.b_showSettings.Text = "Show Settings";
             this.b_showSettings.UseVisualStyleBackColor = true;
@@ -114,7 +120,7 @@
             // 
             // b_maketoolbox
             // 
-            this.b_maketoolbox.Location = new System.Drawing.Point(23, 116);
+            this.b_maketoolbox.Location = new System.Drawing.Point(23, 198);
             this.b_maketoolbox.Name = "b_maketoolbox";
             this.b_maketoolbox.Size = new System.Drawing.Size(120, 23);
             this.b_maketoolbox.TabIndex = 8;
@@ -122,11 +128,72 @@
             this.b_maketoolbox.UseVisualStyleBackColor = true;
             this.b_maketoolbox.Click += new System.EventHandler(this.b_maketoolbox_Click);
             // 
+            // b_updatepkg
+            // 
+            this.b_updatepkg.Location = new System.Drawing.Point(196, 198);
+            this.b_updatepkg.Name = "b_updatepkg";
+            this.b_updatepkg.Size = new System.Drawing.Size(95, 22);
+            this.b_updatepkg.TabIndex = 9;
+            this.b_updatepkg.Text = "Update PKG";
+            this.b_updatepkg.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 146);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Web Server Status:";
+            // 
+            // l_webstatus
+            // 
+            this.l_webstatus.AutoSize = true;
+            this.l_webstatus.Location = new System.Drawing.Point(126, 146);
+            this.l_webstatus.Name = "l_webstatus";
+            this.l_webstatus.Size = new System.Drawing.Size(53, 13);
+            this.l_webstatus.TabIndex = 11;
+            this.l_webstatus.Text = "Unknown";
+            // 
+            // b_webbutton
+            // 
+            this.b_webbutton.Location = new System.Drawing.Point(196, 141);
+            this.b_webbutton.Name = "b_webbutton";
+            this.b_webbutton.Size = new System.Drawing.Size(95, 23);
+            this.b_webbutton.TabIndex = 12;
+            this.b_webbutton.Text = "Start";
+            this.b_webbutton.UseVisualStyleBackColor = true;
+            this.b_webbutton.Click += new System.EventHandler(this.b_webbutton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(20, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "HANSOLOHAX Server Status:";
+            // 
+            // l_hhsStatus
+            // 
+            this.l_hhsStatus.AutoSize = true;
+            this.l_hhsStatus.Location = new System.Drawing.Point(175, 115);
+            this.l_hhsStatus.Name = "l_hhsStatus";
+            this.l_hhsStatus.Size = new System.Drawing.Size(111, 13);
+            this.l_hhsStatus.TabIndex = 14;
+            this.l_hhsStatus.Text = "NOT IMPLEMENTED";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 195);
+            this.ClientSize = new System.Drawing.Size(317, 262);
+            this.Controls.Add(this.l_hhsStatus);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.b_webbutton);
+            this.Controls.Add(this.l_webstatus);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.b_updatepkg);
             this.Controls.Add(this.b_maketoolbox);
             this.Controls.Add(this.b_showSettings);
             this.Controls.Add(this.b_showtable);
@@ -155,6 +222,12 @@
         private System.Windows.Forms.Button b_showtable;
         private System.Windows.Forms.Button b_showSettings;
         private System.Windows.Forms.Button b_maketoolbox;
+        private System.Windows.Forms.Button b_updatepkg;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label l_webstatus;
+        private System.Windows.Forms.Button b_webbutton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label l_hhsStatus;
     }
 }
 
