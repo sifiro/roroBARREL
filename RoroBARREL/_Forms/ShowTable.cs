@@ -11,7 +11,7 @@ namespace RoroBARREL
 {
     public partial class ShowTable : Form
     {
-        private API api;
+        private readonly API api;
         public ShowTable(API api)
         {
             InitializeComponent();
@@ -28,7 +28,6 @@ namespace RoroBARREL
         private void refresh()
         {
             dataGridView.DataSource = new BindingSource() { DataSource = api.getTable().table };
-
         }
 
         private void b_connect_Click(object sender, EventArgs e)

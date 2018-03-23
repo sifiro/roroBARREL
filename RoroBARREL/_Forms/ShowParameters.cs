@@ -11,7 +11,7 @@ namespace RoroBARREL
 {
     public partial class ShowParameters : Form
     {
-        private API api;
+        private readonly API api;
 
         public ShowParameters(API api)
         {

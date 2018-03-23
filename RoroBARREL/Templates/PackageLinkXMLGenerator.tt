@@ -1,16 +1,18 @@
-﻿<#@ template language="C#" #>
+﻿<#@ template language="C#" debug="true" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Diagnostics" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
-
+<#@ import namespace="RoroBARREL.Classes" #>
+<#@ output extension=".xml" #>
 <?xml version="1.0" encoding="UTF-8"?> 
- 
+
 <XMBML version="1.0">
-	<View id="package_link"> 
-		<Attributes> 
-			<Table key="pkg_main">
+	<View id="package_link">
+	<Attributes>
+		<Table key="pkg_main">
 				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
 				<Pair key="icon_notation"><String>WNT_XmbItemAlbum</String></Pair>
 				<Pair key="title"><String>★ Install Packages From Webserver</String></Pair>
@@ -34,10 +36,10 @@
  				<Pair key="info"><String>Reboot Required After Refreshing List</String></Pair>
  			</Table>
 			<# for(int i=0;i<PKGs.Length;i++){ #>
-			<Table key="pkg_<# String.Format("{0:000}", i+1); #>">
-				<Pair key="icon"><String>http://<#= Host #><#= IconsDirectory #><#Path.GetFileNameWithoutExtension(PKGs[i]);#></String></Pair>
+			<Table key="pkg_<#= String.Format("{0:000}", i+1) #>">
+				<Pair key="icon"><String>http://<#= Host #><#= IconsDirectory #><#=Path.GetFileNameWithoutExtension(PKGs[i])#>.PNG</String></Pair>
 				<Pair key="title"><String><#Path.GetFileNameWithoutExtension(PKGs[i]);#></String></Pair>
-				<Pair key="info"><String>NPJB00486   <#Classes.Utils.GetSize(PKGs[i]);#></String></Pair>
+				<Pair key="info"><String><#= Classes.PKGReader.IdReader(PKGs[i]) #>   <#=Classes.Utils.GetSize(PKGs[i])#></String></Pair>
  			</Table>
 			<# } #>
 		</Attributes>
@@ -50,9 +52,9 @@
 		<# for(int i=0;i<PKGs.Length;i++){ #>
 			<Query
 				class="type:x-xmb/folder-pixmap"
-				key="pkg_<# String.Format("{0:000}", i+1); #>"
-				attr="pkg_<# String.Format("{0:000}", i+1); #>"
-				src="#pkg_<# String.Format("{0:000}", i+1); #>_item"/>
+				key="pkg_<#= String.Format("{0:000}", i+1) #>"
+				attr="pkg_<#= String.Format("{0:000}", i+1) #>"
+				src="#pkg_<#= String.Format("{0:000}", i+1) #>_item"/>
 		<# } #>
 			</Items>
 		</View>
@@ -75,17 +77,17 @@
 <# for(int i=0;i<PKGs.Length;i++){ #>
 		<View id="pkg_<# String.Format("{0:000}", i+1); #>_item">
 		<Attributes>
-			<Table key="link<# String.Format("{0:000}", i+1); #>">
+			<Table key="link<#= String.Format("{0:000}", i+1) #>">
 				<Pair key="info"><String>net_package_install</String></Pair>
-				<Pair key="pkg_src"><String>http://<#= Host #><#= PKGDirectory #>/<#Path.GetFileName(PKGs[i]);#></String></Pair>
-				<Pair key="pkg_src_qa"><String>http://<#= Host #><#= PKGDirectory #>/<#Path.GetFileName(PKGs[i]);#></String></Pair>
+				<Pair key="pkg_src"><String>http://<#= Host #><#= PKGDirectory #>/<#=Path.GetFileName(PKGs[i])#></String></Pair>
+				<Pair key="pkg_src_qa"><String>http://<#= Host #><#= PKGDirectory #>/<#=Path.GetFileName(PKGs[i])#></String></Pair>
 				<Pair key="content_name"><String>pkg_install_pc</String></Pair>
-				<Pair key="content_id"><String>JP0700-NPJB00486_00-IMASSFMUSIC00002</String></Pair>
-				<Pair key="prod_pict_path"><String>http://<#= Host #><#= IconsDirectory #><#Path.GetFileNameWithoutExtension(PKGs[i]);#></String></Pair>
+				<Pair key="content_id"><String><#=Classes.PKGReader.ContentIdReader(PKGs[i])#></String></Pair>
+				<Pair key="prod_pict_path"><String>http://<#= Host #><#= IconsDirectory #><#=Path.GetFileNameWithoutExtension(PKGs[i])#></String></Pair>
  			</Table> 
 		</Attributes> 
 			<Items>
-			<Item class="type:x-xmb/xmlnpsignup" key="link<# String.Format("{0:000}", i+1); #>" attr="link<# String.Format("{0:000}", i+1); #>"/>
+			<Item class="type:x-xmb/xmlnpsignup" key="link<#= String.Format("{0:000}", i+1) #>" attr="link<#= String.Format("{0:000}", i+1) #>"/>
 		</Items> 
 		</View> 
 		<# } #>
@@ -94,10 +96,10 @@
 </XMBML>
 
 
-<#+ public string[] PKGs;
-	public string Host;
-	public string Directory;
+<#+ public string[] PKGs { get; set; }
+	public string Host { get; set; }
+	public string Directory { get; set; }
 	public string IconsDirectory="/bin/icons/";
-	public string PKGDirectory="";
-	public string PKGLinkContentID;
+	public string PKGDirectory { get; set; }
+	public string PKGLinkContentID { get; set; }
 	#>

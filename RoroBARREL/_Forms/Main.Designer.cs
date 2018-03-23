@@ -138,6 +138,7 @@
             this.b_updatepkg.TabIndex = 9;
             this.b_updatepkg.Text = "Update PKG";
             this.b_updatepkg.UseVisualStyleBackColor = true;
+            this.b_updatepkg.Click += new System.EventHandler(this.b_updatepkg_Click);
             // 
             // label3
             // 

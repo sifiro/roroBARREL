@@ -5,13 +5,14 @@ using Newtonsoft.Json;
 
 namespace RoroBARREL
 {
-	class RESTConnection
+	public class RESTConnection
     {
         public RESTConnection(string host)
         {
             this.host = host;
         }
-        private string host;
+
+        private readonly string host;
 	    protected HttpWebRequest WebRequest;
 
         public String Request(String method, String url, String Json) {
@@ -19,12 +20,14 @@ namespace RoroBARREL
             if (Json != null && !WebRequest.Method.Contains("GET")) Serializing(Json);
             return Connect();
         }
+
         public String Request(String method, String url, object Json)
         {
             Setup(method, url);
             if (Json != null && !WebRequest.Method.Contains("GET")) Serializing(Json);
             return Connect();
         }
+
         protected void Setup(String method, String url)
         {
             WebRequest = (HttpWebRequest)System.Net.WebRequest.Create("http://"+host + ":3000/" + url);
@@ -32,6 +35,7 @@ namespace RoroBARREL
             WebRequest.ContentType = "application/json";
             WebRequest.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
         }
+
         public string Connect()
         {
 		    try
@@ -57,7 +61,8 @@ namespace RoroBARREL
 		    }
 		    return null;
 	    }
-	    void Serializing(String json)
+
+	    private void Serializing(String json)
         {
 		    using (var streamWriter = new StreamWriter(WebRequest.GetRequestStream()))
 		    {
@@ -66,7 +71,8 @@ namespace RoroBARREL
 	    		streamWriter.Close();
 		    }
 	    }
-	    void Serializing(Object obj)
+
+	    private void Serializing(Object obj)
         {
 	    	using (var streamWriter = new StreamWriter(WebRequest.GetRequestStream()))
 			{

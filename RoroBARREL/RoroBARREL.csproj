@@ -126,7 +126,9 @@
     <None Include="PKGTEMPLATES\HANTOOLBX\PS3LOGO.DAT">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="PKGTEMPLATES\PKGLINKER\PARAM.SFO" />
+    <None Include="PKGTEMPLATES\PKGLINKER\PARAM.SFO">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,9 +170,15 @@
     <Content Include="PKGTEMPLATES\HANTOOLBX\USRDIR\web.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="PKGTEMPLATES\PKGLINKER\ICON0.PNG" />
-    <Content Include="PKGTEMPLATES\PKGLINKER\USRDIR\icons\download.png" />
-    <Content Include="PKGTEMPLATES\PKGLINKER\USRDIR\icons\Refresh_Package_List.PNG" />
+    <Content Include="PKGTEMPLATES\PKGLINKER\ICON0.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\PKGLINKER\USRDIR\icons\download.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PKGTEMPLATES\PKGLINKER\USRDIR\icons\Refresh_Package_List.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templates\HANToolBoxXMLGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HANToolBoxXMLGenerator.cs</LastGenOutput>

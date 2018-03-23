@@ -10,9 +10,11 @@
 namespace RoroBARREL.Templates
 {
     using System.Linq;
+    using System.Diagnostics;
     using System.Text;
     using System.Collections.Generic;
     using System.IO;
+    using RoroBARREL.Classes;
     using System;
     
     /// <summary>
@@ -29,26 +31,25 @@ namespace RoroBARREL.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"
-<?xml version=""1.0"" encoding=""UTF-8""?> 
- 
+            this.Write(@"<?xml version=""1.0"" encoding=""UTF-8""?> 
+
 <XMBML version=""1.0"">
-	<View id=""package_link""> 
-		<Attributes> 
-			<Table key=""pkg_main"">
+	<View id=""package_link"">
+	<Attributes>
+		<Table key=""pkg_main"">
 				<Pair key=""icon_rsc""><String>tex_album_icon</String></Pair>
 				<Pair key=""icon_notation""><String>WNT_XmbItemAlbum</String></Pair>
 				<Pair key=""title""><String>★ Install Packages From Webserver</String></Pair>
 				<Pair key=""info""><String>");
             
-            #line 13 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 19 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Directory));
             
             #line default
             #line hidden
             this.Write(" on ");
             
-            #line 13 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 19 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Host));
             
             #line default
@@ -70,276 +71,289 @@ namespace RoroBARREL.Templates
 			<Table key=""pkg_000"">
 				<Pair key=""icon""><String>http://");
             
-            #line 20 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 34 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Host));
             
             #line default
             #line hidden
-            
-            #line 20 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(IconsDirectory));
-            
-            #line default
-            #line hidden
-            this.Write("Refresh_Package_List.PNG</String></Pair>\n\t\t\t\t<Pair key=\"title\"><String>Refresh Pa" +
-                    "ckage List</String></Pair>\n \t\t\t\t<Pair key=\"info\"><String>Reboot Required After R" +
-                    "efreshing List</String></Pair>\n \t\t\t</Table>\r\n\t\t\t");
-            
-            #line 21 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- for(int i=0;i<PKGs.Length;i++){ 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t<Table key=\"pkg_");
-            
-            #line 22 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- String.Format("{0:000}", i+1); 
-            
-            #line default
-            #line hidden
-            this.Write("\">\r\n\t\t\t\t<Pair key=\"icon\"><String>http://");
-            
-            #line 23 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
-            
-            #line default
-            #line hidden
-            
-            #line 23 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(IconsDirectory));
-            
-            #line default
-            #line hidden
-            
-            #line 23 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-Path.GetFileNameWithoutExtension(PKGs[i]);
-            
-            #line default
-            #line hidden
-            this.Write("</String></Pair>\r\n\t\t\t\t<Pair key=\"title\"><String>");
-            
-            #line 24 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-Path.GetFileNameWithoutExtension(PKGs[i]);
-            
-            #line default
-            #line hidden
-            this.Write("</String></Pair>\r\n\t\t\t\t<Pair key=\"info\"><String>NPJB00486   ");
-            
-            #line 25 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-Classes.Utils.GetSize(PKGs[i]);
-            
-            #line default
-            #line hidden
-            this.Write("</String></Pair>\r\n \t\t\t</Table>\r\n\t\t\t");
-            
-            #line 27 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t</Attributes>\n\t\t\t<Items>\r\n\t\t\t<Query\n\t\t\t\tclass=\"type:x-xmb/folder-pixmap\"\n\t\t\t\tke" +
-                    "y=\"pkg_000\"\n\t\t\t\tattr=\"pkg_000\"\n\t\t\t\tsrc=\"#pkg_000_item\"/>\r\n\t\t");
-            
-            #line 30 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- for(int i=0;i<PKGs.Length;i++){ 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t<Query\n\t\t\t\tclass=\"type:x-xmb/folder-pixmap\"\r\n\t\t\t\tkey=\"pkg_");
-            
-            #line 32 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- String.Format("{0:000}", i+1); 
-            
-            #line default
-            #line hidden
-            this.Write("\"\r\n\t\t\t\tattr=\"pkg_");
-            
-            #line 33 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- String.Format("{0:000}", i+1); 
-            
-            #line default
-            #line hidden
-            this.Write("\"\r\n\t\t\t\tsrc=\"#pkg_");
             
             #line 34 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- String.Format("{0:000}", i+1); 
-            
-            #line default
-            #line hidden
-            this.Write("_item\"/>\r\n\t\t");
-            
-            #line 35 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t</Items>\n\t\t</View>\n\r\n\t\t<View id=\"pkg_000_item\">\n\t\t<Attributes>\n\t\t\t<Table key=\"" +
-                    "link000\">\n\t\t\t\t<Pair key=\"info\"><String>net_package_install</String></Pair>\n\t\t\t\t<" +
-                    "Pair key=\"pkg_src\"><String>http://");
-            
-            #line 37 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
-            
-            #line default
-            #line hidden
-            
-            #line 37 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PKGDirectory));
-            
-            #line default
-            #line hidden
-            this.Write("/Package_List.pkg</String></Pair>\n\t\t\t\t<Pair key=\"pkg_src_qa\"><String>http://");
-            
-            #line 37 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
-            
-            #line default
-            #line hidden
-            
-            #line 37 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PKGDirectory));
-            
-            #line default
-            #line hidden
-            this.Write("/Package_List.pkg</String></Pair>\n\t\t\t\t<Pair key=\"content_name\"><String>pkg_instal" +
-                    "l_pc</String></Pair>\n\t\t\t\t<Pair key=\"content_id\"><String>");
-            
-            #line 37 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PKGLinkContentID));
-            
-            #line default
-            #line hidden
-            this.Write("</String></Pair>\n\t\t\t\t<Pair key=\"prod_pict_path\"><String>http://");
-            
-            #line 37 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
-            
-            #line default
-            #line hidden
-            
-            #line 37 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(IconsDirectory));
             
             #line default
             #line hidden
-            this.Write("Refresh_Package_List.PNG</String></Pair>\n\t\t\t</Table>\n \t\t</Attributes>\n \t\t\t<Items>" +
-                    "\n\t\t\t<Item class=\"type:x-xmb/xmlnpsignup\" key=\"link000\" attr=\"link000\"/>\n\t\t</Item" +
-                    "s>\n \t\t</View>\r\n");
+            this.Write("Refresh_Package_List.PNG</String></Pair>\r\n\t\t\t\t<Pair key=\"title\"><String>Refresh P" +
+                    "ackage List</String></Pair>\r\n \t\t\t\t<Pair key=\"info\"><String>Reboot Required After" +
+                    " Refreshing List</String></Pair>\r\n \t\t\t</Table>\r\n\t\t\t");
             
             #line 38 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
  for(int i=0;i<PKGs.Length;i++){ 
             
             #line default
             #line hidden
-            this.Write("\t\t<View id=\"pkg_");
+            this.Write("\t\t\t<Table key=\"pkg_");
             
             #line 39 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Format("{0:000}", i+1)));
+            
+            #line default
+            #line hidden
+            this.Write("\">\r\n\t\t\t\t<Pair key=\"icon\"><String>http://");
+            
+            #line 40 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
+            
+            #line default
+            #line hidden
+            
+            #line 40 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(IconsDirectory));
+            
+            #line default
+            #line hidden
+            
+            #line 40 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Path.GetFileNameWithoutExtension(PKGs[i])));
+            
+            #line default
+            #line hidden
+            this.Write(".PNG</String></Pair>\r\n\t\t\t\t<Pair key=\"title\"><String>");
+            
+            #line 41 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+Path.GetFileNameWithoutExtension(PKGs[i]);
+            
+            #line default
+            #line hidden
+            this.Write("</String></Pair>\r\n\t\t\t\t<Pair key=\"info\"><String>");
+            
+            #line 42 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Classes.PKGReader.IdReader(PKGs[i])));
+            
+            #line default
+            #line hidden
+            this.Write("   ");
+            
+            #line 42 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Classes.Utils.GetSize(PKGs[i])));
+            
+            #line default
+            #line hidden
+            this.Write("</String></Pair>\r\n \t\t\t</Table>\r\n\t\t\t");
+            
+            #line 44 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\t\t</Attributes>\r\n\t\t\t<Items>\r\n\t\t\t<Query\r\n\t\t\t\tclass=\"type:x-xmb/folder-pixmap\"\r\n\t\t\t" +
+                    "\tkey=\"pkg_000\"\r\n\t\t\t\tattr=\"pkg_000\"\r\n\t\t\t\tsrc=\"#pkg_000_item\"/>\r\n\t\t");
+            
+            #line 52 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+ for(int i=0;i<PKGs.Length;i++){ 
+            
+            #line default
+            #line hidden
+            this.Write("\t\t\t<Query\r\n\t\t\t\tclass=\"type:x-xmb/folder-pixmap\"\r\n\t\t\t\tkey=\"pkg_");
+            
+            #line 55 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Format("{0:000}", i+1)));
+            
+            #line default
+            #line hidden
+            this.Write("\"\r\n\t\t\t\tattr=\"pkg_");
+            
+            #line 56 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Format("{0:000}", i+1)));
+            
+            #line default
+            #line hidden
+            this.Write("\"\r\n\t\t\t\tsrc=\"#pkg_");
+            
+            #line 57 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Format("{0:000}", i+1)));
+            
+            #line default
+            #line hidden
+            this.Write("_item\"/>\r\n\t\t");
+            
+            #line 58 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\t\t\t</Items>\r\n\t\t</View>\r\n\r\n\t\t<View id=\"pkg_000_item\">\r\n\t\t<Attributes>\r\n\t\t\t<Table k" +
+                    "ey=\"link000\">\r\n\t\t\t\t<Pair key=\"info\"><String>net_package_install</String></Pair>\r" +
+                    "\n\t\t\t\t<Pair key=\"pkg_src\"><String>http://");
+            
+            #line 66 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
+            
+            #line default
+            #line hidden
+            
+            #line 66 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PKGDirectory));
+            
+            #line default
+            #line hidden
+            this.Write("/Package_List.pkg</String></Pair>\r\n\t\t\t\t<Pair key=\"pkg_src_qa\"><String>http://");
+            
+            #line 67 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
+            
+            #line default
+            #line hidden
+            
+            #line 67 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PKGDirectory));
+            
+            #line default
+            #line hidden
+            this.Write("/Package_List.pkg</String></Pair>\r\n\t\t\t\t<Pair key=\"content_name\"><String>pkg_insta" +
+                    "ll_pc</String></Pair>\r\n\t\t\t\t<Pair key=\"content_id\"><String>");
+            
+            #line 69 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PKGLinkContentID));
+            
+            #line default
+            #line hidden
+            this.Write("</String></Pair>\r\n\t\t\t\t<Pair key=\"prod_pict_path\"><String>http://");
+            
+            #line 70 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
+            
+            #line default
+            #line hidden
+            
+            #line 70 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(IconsDirectory));
+            
+            #line default
+            #line hidden
+            this.Write("Refresh_Package_List.PNG</String></Pair>\r\n\t\t\t</Table>\r\n \t\t</Attributes>\r\n \t\t\t<Ite" +
+                    "ms>\r\n\t\t\t<Item class=\"type:x-xmb/xmlnpsignup\" key=\"link000\" attr=\"link000\"/>\r\n\t\t<" +
+                    "/Items>\r\n \t\t</View>\r\n");
+            
+            #line 77 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+ for(int i=0;i<PKGs.Length;i++){ 
+            
+            #line default
+            #line hidden
+            this.Write("\t\t<View id=\"pkg_");
+            
+            #line 78 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
  String.Format("{0:000}", i+1); 
             
             #line default
             #line hidden
             this.Write("_item\">\r\n\t\t<Attributes>\r\n\t\t\t<Table key=\"link");
             
-            #line 41 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- String.Format("{0:000}", i+1); 
+            #line 80 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Format("{0:000}", i+1)));
             
             #line default
             #line hidden
             this.Write("\">\r\n\t\t\t\t<Pair key=\"info\"><String>net_package_install</String></Pair>\r\n\t\t\t\t<Pair k" +
                     "ey=\"pkg_src\"><String>http://");
             
-            #line 43 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 82 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Host));
             
             #line default
             #line hidden
             
-            #line 43 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 82 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PKGDirectory));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 43 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-Path.GetFileName(PKGs[i]);
+            #line 82 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Path.GetFileName(PKGs[i])));
             
             #line default
             #line hidden
             this.Write("</String></Pair>\r\n\t\t\t\t<Pair key=\"pkg_src_qa\"><String>http://");
             
-            #line 44 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 83 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Host));
             
             #line default
             #line hidden
             
-            #line 44 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 83 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PKGDirectory));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 44 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-Path.GetFileName(PKGs[i]);
+            #line 83 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Path.GetFileName(PKGs[i])));
             
             #line default
             #line hidden
             this.Write("</String></Pair>\r\n\t\t\t\t<Pair key=\"content_name\"><String>pkg_install_pc</String></P" +
-                    "air>\r\n\t\t\t\t<Pair key=\"content_id\"><String>JP0700-NPJB00486_00-IMASSFMUSIC00002</S" +
-                    "tring></Pair>\r\n\t\t\t\t<Pair key=\"prod_pict_path\"><String>http://");
+                    "air>\r\n\t\t\t\t<Pair key=\"content_id\"><String>");
             
-            #line 47 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 85 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Classes.PKGReader.ContentIdReader(PKGs[i])));
+            
+            #line default
+            #line hidden
+            this.Write("</String></Pair>\r\n\t\t\t\t<Pair key=\"prod_pict_path\"><String>http://");
+            
+            #line 86 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Host));
             
             #line default
             #line hidden
             
-            #line 47 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 86 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(IconsDirectory));
             
             #line default
             #line hidden
             
-            #line 47 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-Path.GetFileNameWithoutExtension(PKGs[i]);
+            #line 86 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Path.GetFileNameWithoutExtension(PKGs[i])));
             
             #line default
             #line hidden
-            this.Write("</String></Pair>\r\n \t\t\t</Table> \n\t\t</Attributes> \n\t\t\t<Items>\r\n\t\t\t<Item class=\"type" +
-                    ":x-xmb/xmlnpsignup\" key=\"link");
+            this.Write("</String></Pair>\r\n \t\t\t</Table> \r\n\t\t</Attributes> \r\n\t\t\t<Items>\r\n\t\t\t<Item class=\"ty" +
+                    "pe:x-xmb/xmlnpsignup\" key=\"link");
             
-            #line 49 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- String.Format("{0:000}", i+1); 
+            #line 90 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Format("{0:000}", i+1)));
             
             #line default
             #line hidden
             this.Write("\" attr=\"link");
             
-            #line 49 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- String.Format("{0:000}", i+1); 
+            #line 90 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Format("{0:000}", i+1)));
             
             #line default
             #line hidden
-            this.Write("\"/>\r\n\t\t</Items> \n\t\t</View> \n\t\t");
+            this.Write("\"/>\r\n\t\t</Items> \r\n\t\t</View> \r\n\t\t");
             
-            #line 50 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+            #line 93 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("\n\r\n</XMBML>\r\n\r\n\r\n");
+            this.Write("\r\n\r\n</XMBML>\r\n\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 55 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- public string[] PKGs;
-	public string Host;
-	public string Directory;
+        #line 99 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
+ public string[] PKGs { get; set; }
+	public string Host { get; set; }
+	public string Directory { get; set; }
 	public string IconsDirectory="/bin/icons/";
-	public string PKGDirectory="";
-	public string PKGLinkContentID;
+	public string PKGDirectory { get; set; }
+	public string PKGLinkContentID { get; set; }
 	
         
         #line default
