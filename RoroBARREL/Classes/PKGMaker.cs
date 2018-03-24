@@ -50,7 +50,7 @@ namespace RoroBARREL.Classes
             /// Make configuration file for PKG Packer
             Utils.WritePlainFile("./" + templateFolder + "/" + "config-pkglinker.cfg", GenerateConfigurationForPKGGenerator(pkglinkContentID));
             MakePKG("./" + templateFolder + "/" + "config-pkglinker.cfg", "./" + templateFolder + "/" + pkglink);
-         //   Utils.deleteDirectory("./" + templateFolder + "/" + pkglink_tmp);
+            File.Move(".\\"+ pkglinkContentID+".pkg", directory+ "\\Package_List.pkg");
         }
 
         private static void MakePKG(string config, string dir) {
@@ -61,7 +61,7 @@ namespace RoroBARREL.Classes
                 FileName = "./external/psn_package_npdrm2.exe",
                 /// package.conf XMBPLS
                 Arguments = config +" " + dir
-            });
+            }).WaitForExit();
         }
     }
 }

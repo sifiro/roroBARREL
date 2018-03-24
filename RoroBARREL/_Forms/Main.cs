@@ -20,7 +20,7 @@ namespace RoroBARREL
         private readonly string tmpDirectory = Directory.GetCurrentDirectory();
        // private string tmpDirectory;
         private const string iconsDirectory = "icons";
-        private const string pkgDirectory = "";
+        private const string pkgDirectory = "/han";
 
         public Main()
         {
@@ -93,7 +93,7 @@ namespace RoroBARREL
                     throw;
                 }
             }
-            Classes.PKGMaker.GeneratePKGLinker(t_address.Text, folderPath.Text, pkgDirectory,"/"+iconsDirectory+"/",pkgs);
+            Classes.PKGMaker.GeneratePKGLinker(t_address.Text, folderPath.Text, pkgDirectory, pkgDirectory+"/" +iconsDirectory+"/",pkgs);
             setup();
            api.setTable(new Table() {table = list });
             api.SetLocalIPAddress(t_localipaddress.Text);
