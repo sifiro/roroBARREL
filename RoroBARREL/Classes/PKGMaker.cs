@@ -16,16 +16,16 @@ namespace RoroBARREL.Classes
             return new Templates.HANToolBoxXMLGenerator() { Host = host }.TransformText();
         }
 
-        private static string GeneratePKGLinkerXML(string host,string directory,string pkgDirectory,string iconsDirectory, string[] pkgs)
+        private static string GeneratePKGLinkerXML(string host,string directory,string pkgDirectory,string iconsDirectory, string[] pkgs, string hasIcon)
         {
-            var x= new Templates.PackageLinkXMLGenerator() { Host = host,
+           return new Templates.PackageLinkXMLGenerator() { Host = host,
                 PKGDirectory = pkgDirectory,
                 IconsDirectory = iconsDirectory,
                 Directory = directory,
+                HasIcon = hasIcon,
                 PKGs = pkgs,
                 PKGLinkContentID = pkglinkContentID
-            };
-            return x.TransformText();
+            }.TransformText();
         }
 
         private static string GenerateConfigurationForPKGGenerator(string contentid) {
@@ -41,12 +41,12 @@ namespace RoroBARREL.Classes
             MakePKG("./" + templateFolder + "/" + "config-hantoolbox.cfg", "./" + templateFolder + "/" + htbx);
         }
 
-        public static void GeneratePKGLinker(string host, string directory, string pkgDirectory, string iconsDirectory , string[] pkgs)
+        public static void GeneratePKGLinker(string host, string directory, string pkgDirectory, string iconsDirectory , string[] pkgs,string hasIcon)
         {
         //    Utils.copyDirectory("./" + templateFolder + "/" + pkglink, "./" + templateFolder + "/" + pkglink_tmp);
             /// Make package_link.xml Template
             Utils.WritePlainFile("./" + templateFolder + "/" + pkglink + "/USRDIR/" + "package_link.xml",
-                GeneratePKGLinkerXML(host,directory,pkgDirectory, iconsDirectory, pkgs));
+                GeneratePKGLinkerXML(host,directory,pkgDirectory, iconsDirectory, pkgs,hasIcon));
             /// Make configuration file for PKG Packer
             Utils.WritePlainFile("./" + templateFolder + "/" + "config-pkglinker.cfg", GenerateConfigurationForPKGGenerator(pkglinkContentID));
             MakePKG("./" + templateFolder + "/" + "config-pkglinker.cfg", "./" + templateFolder + "/" + pkglink);

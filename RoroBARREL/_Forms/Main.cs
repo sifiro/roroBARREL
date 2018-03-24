@@ -74,26 +74,28 @@ namespace RoroBARREL
         private void b_send_Click(object sender, EventArgs e)
         {
             var pkgs = Directory.GetFiles(folderPath.Text, "*.pkg");
+            var hasIcon = new bool[pkgs.Length];
             var list=new Dictionary<string, string>();
-            foreach (var file in pkgs) {
+            for (var i= 0; i < pkgs.Length; i++) {
                 try {
-                    list.Add(Path.GetFileName(file),Classes.PKGReader.ContentIdReader(file));
+                    list.Add(Path.GetFileName(pkgs[i]),Classes.PKGReader.ContentIdReader(pkgs[i]));
                     if (!Directory.Exists(tmpDirectory + "\\" + iconsDirectory))
                     {
                         Directory.CreateDirectory(tmpDirectory + "\\" + iconsDirectory);
                         Classes.Utils.SetGuestPermissions(new DirectoryInfo(tmpDirectory + "\\" + iconsDirectory));
                     }
-                    if (!File.Exists(tmpDirectory + "\\" + iconsDirectory + "\\" + Path.GetFileNameWithoutExtension(file) + ".PNG")) {
-                    Classes.PKGReader.ImgExtractor(file,tmpDirectory+ "\\" +iconsDirectory +"\\");
+                    if (!File.Exists(tmpDirectory + "\\" + iconsDirectory + "\\" + Path.GetFileNameWithoutExtension(pkgs[i]) + ".PNG")) {
+                        hasIcon[i] = true;
+                        Classes.PKGReader.ImgExtractor(pkgs[i], tmpDirectory + "\\" + iconsDirectory + "\\");
                         if (File.Exists(tmpDirectory + "\\" + iconsDirectory + "\\" + "ICON0.PNG")) {
-                            File.Move(tmpDirectory +"\\" + iconsDirectory + "\\" + "ICON0.PNG", tmpDirectory + "\\" + iconsDirectory + "\\" + Path.GetFileNameWithoutExtension(file)+".PNG");
+                            File.Move(tmpDirectory + "\\" + iconsDirectory + "\\" + "ICON0.PNG", tmpDirectory + "\\" + iconsDirectory + "\\" + Path.GetFileNameWithoutExtension(pkgs[i]) + ".PNG");
                         }
-                    }
+                    } else { hasIcon[i] = false; }
                 } catch {
                     throw;
                 }
             }
-            Classes.PKGMaker.GeneratePKGLinker(t_address.Text, folderPath.Text, pkgDirectory, pkgDirectory+"/" +iconsDirectory+"/",pkgs);
+            Classes.PKGMaker.GeneratePKGLinker(t_address.Text, folderPath.Text, pkgDirectory, pkgDirectory+"/" +iconsDirectory+"/",pkgs, tmpDirectory + "\\" + iconsDirectory + "\\");
             setup();
            api.setTable(new Table() {table = list });
             api.SetLocalIPAddress(t_localipaddress.Text);
@@ -111,7 +113,7 @@ namespace RoroBARREL
         }
 
         private void StartStopHTTP()
-        {
+        { 
             if (!server_status) {
                 server_status = true;
                 l_webstatus.Text = "Running";
@@ -130,6 +132,7 @@ namespace RoroBARREL
                 b_webbutton.Text = "Start";
                 server_status = false;
             }
+            
         }
 
         private void b_updatepkg_Click(object sender, EventArgs e)
