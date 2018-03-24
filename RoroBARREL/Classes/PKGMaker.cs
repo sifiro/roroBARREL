@@ -50,7 +50,10 @@ namespace RoroBARREL.Classes
             /// Make configuration file for PKG Packer
             Utils.WritePlainFile("./" + templateFolder + "/" + "config-pkglinker.cfg", GenerateConfigurationForPKGGenerator(pkglinkContentID));
             MakePKG("./" + templateFolder + "/" + "config-pkglinker.cfg", "./" + templateFolder + "/" + pkglink);
-            File.Move(".\\"+ pkglinkContentID+".pkg", directory+ "\\Package_List.pkg");
+            if (File.Exists(directory + "\\Package_List.pkg")) {
+                File.Delete(directory + "\\Package_List.pkg");
+            }
+            File.Copy(".\\" + pkglinkContentID + ".pkg", directory + "\\Package_List.pkg");
         }
 
         private static void MakePKG(string config, string dir) {

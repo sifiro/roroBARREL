@@ -34,7 +34,7 @@ namespace RoroBARREL.Templates
             this.Write(@"<?xml version=""1.0"" encoding=""UTF-8""?> 
 
 <XMBML version=""1.0"">
-	<View id=""package_link"">
+	<View id=""package_link_game"">
 	<Attributes>
 		<Table key=""pkg_main"">
 				<Pair key=""icon_rsc""><String>tex_album_icon</String></Pair>
@@ -67,24 +67,13 @@ namespace RoroBARREL.Templates
 			</Items>
 		</View>
 		<View id=""pkg_items"">	
-		<Attributes
+		<Attributes>
 			<Table key=""pkg_000"">
-				<Pair key=""icon""><String>http://");
-            
-            #line 34 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
-            
-            #line default
-            #line hidden
-            
-            #line 34 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(IconsDirectory));
-            
-            #line default
-            #line hidden
-            this.Write("Refresh_Package_List.PNG</String></Pair>\r\n\t\t\t\t<Pair key=\"title\"><String>Refresh P" +
-                    "ackage List</String></Pair>\r\n \t\t\t\t<Pair key=\"info\"><String>Reboot Required After" +
-                    " Refreshing List</String></Pair>\r\n \t\t\t</Table>\r\n\t\t\t");
+				<Pair key=""icon""><String>/dev_hdd0/game/PKGLINKER/USRDIR/icons/Refresh_Package_List.PNG</String></Pair>
+				<Pair key=""title""><String>Refresh Package List</String></Pair>
+ 				<Pair key=""info""><String>Reboot Required After Refreshing List</String></Pair>
+ 			</Table>
+			");
             
             #line 38 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
  for(int i=0;i<PKGs.Length;i++){ 
@@ -113,14 +102,14 @@ namespace RoroBARREL.Templates
             #line hidden
             
             #line 40 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Path.GetFileNameWithoutExtension(PKGs[i])));
+            this.Write(this.ToStringHelper.ToStringWithCulture(Uri.EscapeUriString(Path.GetFileNameWithoutExtension(PKGs[i]))));
             
             #line default
             #line hidden
             this.Write(".PNG</String></Pair>\r\n\t\t\t\t<Pair key=\"title\"><String>");
             
             #line 41 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-Path.GetFileNameWithoutExtension(PKGs[i]);
+            this.Write(this.ToStringHelper.ToStringWithCulture(Path.GetFileNameWithoutExtension(PKGs[i])));
             
             #line default
             #line hidden
@@ -153,7 +142,7 @@ Path.GetFileNameWithoutExtension(PKGs[i]);
             
             #line default
             #line hidden
-            this.Write("\t\t\t<Query\r\n\t\t\t\tclass=\"type:x-xmb/folder-pixmap\"\r\n\t\t\t\tkey=\"pkg_");
+            this.Write("\t\t<Query\r\n\t\t\t\tclass=\"type:x-xmb/folder-pixmap\"\r\n\t\t\t\tkey=\"pkg_");
             
             #line 55 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(String.Format("{0:000}", i+1)));
@@ -242,7 +231,7 @@ Path.GetFileNameWithoutExtension(PKGs[i]);
             this.Write("\t\t<View id=\"pkg_");
             
             #line 78 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
- String.Format("{0:000}", i+1); 
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Format("{0:000}", i+1)));
             
             #line default
             #line hidden
@@ -270,7 +259,7 @@ Path.GetFileNameWithoutExtension(PKGs[i]);
             this.Write("/");
             
             #line 82 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Path.GetFileName(PKGs[i])));
+            this.Write(this.ToStringHelper.ToStringWithCulture(Uri.EscapeUriString(Path.GetFileName(PKGs[i]))));
             
             #line default
             #line hidden
@@ -290,7 +279,7 @@ Path.GetFileNameWithoutExtension(PKGs[i]);
             this.Write("/");
             
             #line 83 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Path.GetFileName(PKGs[i])));
+            this.Write(this.ToStringHelper.ToStringWithCulture(Uri.EscapeUriString(Path.GetFileName(PKGs[i]))));
             
             #line default
             #line hidden
@@ -317,7 +306,7 @@ Path.GetFileNameWithoutExtension(PKGs[i]);
             #line hidden
             
             #line 86 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Path.GetFileNameWithoutExtension(PKGs[i])));
+            this.Write(this.ToStringHelper.ToStringWithCulture(Uri.EscapeUriString(Path.GetFileNameWithoutExtension(PKGs[i]))));
             
             #line default
             #line hidden
