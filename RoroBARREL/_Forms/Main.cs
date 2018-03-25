@@ -89,7 +89,7 @@ namespace RoroBARREL
                         Classes.PKGReader.ImgExtractor(pkgs[i], tmpDirectory + "\\" + iconsDirectory + "\\");
                         if (File.Exists(tmpDirectory + "\\" + iconsDirectory + "\\" + "ICON0.PNG")) {
                             File.Move(tmpDirectory + "\\" + iconsDirectory + "\\" + "ICON0.PNG", tmpDirectory + "\\" + iconsDirectory + "\\" + Path.GetFileNameWithoutExtension(pkgs[i]) + ".PNG");
-                        }
+                        }   
                     } else { hasIcon[i] = false; }
                 } catch {
                     throw;
@@ -119,12 +119,15 @@ namespace RoroBARREL
                 l_webstatus.Text = "Running";
                 b_webbutton.Text = "Stop";
                 server = new WebServer();
-                server.RegisterModule(
-                    new StaticFilesModule(
-                        new Dictionary<string, string> {
-                            { "/", folderPath.Text },
-                            { "/" + iconsDirectory + "/", tmpDirectory + "\\" + iconsDirectory }
-                           }));
+                /*    server.RegisterModule(
+                        new StaticFilesModule(
+                            new Dictionary<string, string> {
+                             //   { "/", folderPath.Text },
+                             //   { "/" + iconsDirectory , tmpDirectory + "\\" + iconsDirectory }
+                               }));*/
+                server.RegisterModule(new StaticFilesModule(folderPath.Text));
+                server.RegisterModule(new StaticFilesModule(tmpDirectory));
+
                 server.RunAsync();
             } else {
                 server.Dispose();

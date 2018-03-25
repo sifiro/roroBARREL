@@ -49,7 +49,7 @@
             // 
             // b_send
             // 
-            this.b_send.Location = new System.Drawing.Point(216, 227);
+            this.b_send.Location = new System.Drawing.Point(233, 227);
             this.b_send.Name = "b_send";
             this.b_send.Size = new System.Drawing.Size(75, 23);
             this.b_send.TabIndex = 0;
@@ -112,7 +112,7 @@
             // 
             // b_showSettings
             // 
-            this.b_showSettings.Location = new System.Drawing.Point(114, 227);
+            this.b_showSettings.Location = new System.Drawing.Point(129, 227);
             this.b_showSettings.Name = "b_showSettings";
             this.b_showSettings.Size = new System.Drawing.Size(96, 23);
             this.b_showSettings.TabIndex = 7;
@@ -132,7 +132,7 @@
             // 
             // b_updatepkg
             // 
-            this.b_updatepkg.Location = new System.Drawing.Point(196, 198);
+            this.b_updatepkg.Location = new System.Drawing.Point(216, 198);
             this.b_updatepkg.Name = "b_updatepkg";
             this.b_updatepkg.Size = new System.Drawing.Size(95, 22);
             this.b_updatepkg.TabIndex = 9;

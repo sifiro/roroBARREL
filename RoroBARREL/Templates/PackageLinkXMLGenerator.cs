@@ -227,22 +227,15 @@ namespace RoroBARREL.Templates
             
             #line default
             #line hidden
-            this.Write("</String></Pair>\r\n\t\t\t\t<Pair key=\"prod_pict_path\"><String>http://");
-            
-            #line 74 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Host));
-            
-            #line default
-            #line hidden
-            
-            #line 74 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(IconsDirectory));
-            
-            #line default
-            #line hidden
-            this.Write("Refresh_Package_List.PNG</String></Pair>\r\n\t\t\t</Table>\r\n \t\t</Attributes>\r\n \t\t\t<Ite" +
-                    "ms>\r\n\t\t\t<Item class=\"type:x-xmb/xmlnpsignup\" key=\"link000\" attr=\"link000\"/>\r\n\t\t<" +
-                    "/Items>\r\n \t\t</View>\r\n");
+            this.Write(@"</String></Pair>
+				<Pair key=""prod_pict_path""><String>/dev_hdd0/game/PKGLINKER/USRDIR/icons/Refresh_Package_List.PNG</String></Pair>
+			</Table>
+ 		</Attributes>
+ 			<Items>
+			<Item class=""type:x-xmb/xmlnpsignup"" key=""link000"" attr=""link000""/>
+		</Items>
+ 		</View>
+");
             
             #line 81 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
  for(int i=0;i<PKGs.Length;i++){ 
@@ -338,7 +331,7 @@ namespace RoroBARREL.Templates
             
             #line default
             #line hidden
-            this.Write("</String></Pair>\r\n \t\t\t\t");
+            this.Write(".PNG</String></Pair>\r\n \t\t\t\t");
             
             #line 92 "C:\Users\sifir\source\repos\RoroBARREL\RoroBARREL\Templates\PackageLinkXMLGenerator.tt"
 }else{
